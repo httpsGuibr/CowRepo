@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+C:\Users\guilh\Desktop\BlindGame\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3003481332.index
+3860588843.index
+1746292677.index
+2044679188.index
+2502780601.index

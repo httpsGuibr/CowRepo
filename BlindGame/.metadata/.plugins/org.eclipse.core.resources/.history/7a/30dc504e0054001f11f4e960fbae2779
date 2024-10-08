@@ -1,0 +1,102 @@
+package wewerwe;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+@SuppressWarnings("unused")
+public class Gamezinho extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Gamezinho frame = new Gamezinho();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Gamezinho() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 650, 420);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton Ss = new JButton("");
+		Ss.setBackground(SystemColor.activeCaption);
+		Ss.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		Ss.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/down-arrow.png")));
+		Ss.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		Ss.setBounds(83, 222, 64, 64);
+		contentPane.add(Ss);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/LOGO.png")));
+		lblNewLabel.setBounds(233, 11, 380, 370);
+		contentPane.add(lblNewLabel);
+		
+		JButton wW = new JButton("");
+		wW.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+			}
+		});
+		wW.setBackground(SystemColor.activeCaption);
+		wW.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/up-arrow.png")));
+		wW.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		wW.setBounds(83, 95, 64, 64);
+		contentPane.add(wW);
+		
+		JButton dD = new JButton("");
+		dD.setBackground(SystemColor.activeCaption);
+		dD.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/right-arrow.png")));
+		dD.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		dD.setBounds(146, 160, 64, 64);
+		contentPane.add(dD);
+		
+		JButton aA = new JButton("");
+		aA.setBackground(SystemColor.activeCaption);
+		aA.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/left-arrow.png")));
+		aA.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		aA.setBounds(22, 160, 64, 64);
+		contentPane.add(aA);
+	
+		KeyBinder.setupKeyBindings(aA, Ss, dD, wW);
+		
+		
+		
+		
+		
+	}
+}

@@ -1,0 +1,213 @@
+package game;
+
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.ImageIcon;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.Toolkit;
+
+@SuppressWarnings("unused")
+public class Gamezinho extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JPanel contentPane;
+    public static JLabel Lilbelula;
+    private static JLabel laife;
+
+    
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    Gamezinho frame = new Gamezinho();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    
+    public Gamezinho() {
+    	setIconImage(Toolkit.getDefaultToolkit().getImage(Gamezinho.class.getResource("/img/logo.jpg")));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 650, 420);
+        contentPane = new JPanel();
+        contentPane.setBackground(Color.WHITE);
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+        
+        JButton Ss = new JButton("");
+        Ss.setBackground(Color.WHITE);
+        Ss.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/down-arrow.png")));
+        Ss.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        Ss.setBounds(83, 222, 64, 64);
+        Ss.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                scenesgenerator(); 
+            }
+        });
+        contentPane.add(Ss);
+
+        Lilbelula = new JLabel("");
+        Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/LOGO.png")));
+        Lilbelula.setBounds(233, 11, 380, 370);
+        contentPane.add(Lilbelula);
+
+        JButton wW = new JButton("");
+        wW.setBackground(Color.WHITE);
+        wW.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/up-arrow.png")));
+        wW.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        wW.setBounds(83, 95, 64, 64);
+        wW.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                scenesgenerator(); 
+            }
+        });
+        contentPane.add(wW);
+
+        JButton dD = new JButton("");
+        dD.setBackground(Color.WHITE);
+        dD.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/right-arrow.png")));
+        dD.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        dD.setBounds(146, 160, 64, 64);
+        dD.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                scenesgenerator(); 
+            }
+        });
+        contentPane.add(dD);
+
+        JButton aA = new JButton("");
+        aA.setForeground(Color.WHITE);
+        aA.setBackground(Color.WHITE);
+        aA.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/left-arrow.png")));
+        aA.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        aA.setBounds(22, 160, 64, 64);
+        contentPane.add(aA);
+
+        
+        KeyBinder.setupKeyBindings(aA, Ss, dD, wW);
+        
+        laife = new JLabel("<html>Vidas: " + Pont_Sys.life_total + " pts</html>");
+        laife.setHorizontalAlignment(SwingConstants.CENTER);
+        laife.setFont(new Font("Arcadepix Plus", Font.PLAIN, 23));
+        laife.setBounds(22, 305, 188, 65);
+        contentPane.add(laife);
+        
+        
+        JLabel lblNewLabel_1 = new JLabel(".");
+        lblNewLabel_1.setBounds(86, 342, 17, 14);
+        contentPane.add(lblNewLabel_1);
+    }
+
+    public static void atualizarVidas() {
+        laife.setText("<html>Vidas: " + Pont_Sys.life_total + " pts<html>");
+    }
+    
+    private void showAuxiliaryWindow1() {
+        AuxiliaryWindow1 auxWindow = new AuxiliaryWindow1(this); // Passa a instância de Gamezinho
+        auxWindow.setVisible(true); 
+    }
+
+    
+    private  void showAuxiliaryWindow2() {
+        AuxiliaryWindow2 auxWindow = new AuxiliaryWindow2();
+        auxWindow.setVisible(true); 
+    }
+    
+    private  void showAuxiliaryWindow3() {
+        AuxiliaryWindow3 auxWindow = new AuxiliaryWindow3();
+        auxWindow.setVisible(true); 
+    }
+    
+    private  void showAuxiliaryWindow4() {
+        AuxiliaryWindow4 auxWindow = new AuxiliaryWindow4();
+        auxWindow.setVisible(true); 
+    }
+    
+    public void scenesgenerator() {
+        Random rand = new Random();
+        double roulette = rand.nextInt(100);
+        System.out.println(roulette);
+        
+        List<Integer> cenasDisponiveis = new ArrayList<>();
+        
+        if (Pont_Sys.cena1 == 0) cenasDisponiveis.add(0);
+        if (Pont_Sys.cena2 == 0) cenasDisponiveis.add(1);
+        if (Pont_Sys.cena3 == 0) cenasDisponiveis.add(2);
+        if (Pont_Sys.cena4 == 0) cenasDisponiveis.add(3);
+        
+        
+        if (cenasDisponiveis.isEmpty()) {
+            System.out.println("Todas as cenas já foram executadas.");
+            Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/gifpronto.gif")));
+            return;
+        }
+        
+
+        String[][] array = {
+            {"Magia do Tempo", "ALIENIGENAS", "Magia do Tempo", "ALIENIGENAS", "Magia do Tempo"},
+            {"GRAVIDADE", "ALIENIGENAS", "Magia do Tempo", "ALIENIGENAS", "ALIENIGENAS"},
+            {"INICIO", "ALIENIGENAS", "Portal dimensional", "Portal dimensional", "GRAVIDADE"},
+            {"GRAVIDADE", "Magia do Tempo", "Portal dimensional", "ALIENIGENAS", "GRAVIDADE"},
+            {"Magia do Tempo", "GRAVIDADE", "GRAVIDADE", "Portal dimensional", "ALIENIGENAS"}
+        };
+
+        if (roulette <= 25) {
+        	
+        	int roulette2 = cenasDisponiveis.get(rand.nextInt(cenasDisponiveis.size()));
+            System.out.println("Cena selecionada: " + roulette2);
+        	
+            //int roulette2 = rand.nextInt(4);
+            System.out.println(roulette2);
+            switch (roulette2) {
+                case 0:
+                    Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/gravidade.png")));
+                    Pont_Sys.cena1 = 1;
+                    showAuxiliaryWindow1();
+                    break;
+                case 1:
+                    Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/nave.png")));
+                    Pont_Sys.cena2 = 1;
+                    showAuxiliaryWindow2();
+                    break;
+                case 2:
+                    Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/portal.png")));
+                    Pont_Sys.cena3 = 1;
+                    showAuxiliaryWindow3();
+                    break;
+                case 3:
+                    Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/mago.png")));
+                    Pont_Sys.cena4 = 1;
+                    showAuxiliaryWindow4();
+                    break;
+                default:
+                    Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/walking1.gif")));
+                    break;
+            }
+        } else {
+            Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/walking1.gif")));
+        }
+        
+        
+    }
+    
+}
+

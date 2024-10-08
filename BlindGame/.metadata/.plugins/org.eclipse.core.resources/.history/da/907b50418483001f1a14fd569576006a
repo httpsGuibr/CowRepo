@@ -1,0 +1,216 @@
+package game;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import java.awt.Font;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Color;
+
+public class AuxiliaryWindow1 extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JPanel contentPane;
+    private static Gamezinho gamezinho;
+    private CustomTimer timer; // Instância do timer personalizado
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    AuxiliaryWindow1 frame = new AuxiliaryWindow1(gamezinho);
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public AuxiliaryWindow1(Gamezinho gamezinho) {
+        AuxiliaryWindow1.gamezinho = gamezinho; 
+        initialize(); 
+    }
+
+    private void initialize() {
+        setTitle("BlindGame");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 520, 336);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+        JButton continueButton = new JButton("Continuar");
+        continueButton.setBounds(183, 258, 138, 23);
+        continueButton.setFont(new Font("Arcadepix Plus", Font.PLAIN, 23));
+        contentPane.add(continueButton);
+        continueButton.setVisible(false);
+        continueButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Gamezinho.atualizarVidas(); 
+                dispose(); 
+                if (Pont_Sys.verify == 1) {
+                    Gamezinho.Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/morreu2.gif"))); 
+                } else {
+                    Gamezinho.Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/walking1.gif"))); 
+                }
+            }
+        });
+
+        JButton closeButton = new JButton("Fechar");
+        closeButton.setFont(new Font("Arcadepix Plus", Font.PLAIN, 14));
+        closeButton.setBounds(399, 11, 95, 23); 
+        contentPane.add(closeButton);
+
+        JLabel result = new JLabel("");
+        result.setVerticalAlignment(SwingConstants.TOP);
+        result.setFont(new Font("Arcadepix Plus", Font.PLAIN, 18));
+        result.setBounds(21, 216, 300, 34);
+        contentPane.add(result);
+
+        JLabel vida = new JLabel(""); 
+        vida.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        vida.setHorizontalAlignment(SwingConstants.CENTER);
+        vida.setForeground(new Color(0, 0, 0));
+        vida.setFont(new Font("Arcadepix Plus", Font.PLAIN, 36));
+        vida.setBounds(403, 228, 70, 34);
+        contentPane.add(vida);
+
+        JLabel Vida1 = new JLabel("<html>Vidas:<html><br>"+ Pont_Sys.life_total + "<html>pts<html>" );
+        Vida1.setFont(new Font("Arcadepix Plus", Font.PLAIN, 30));
+        Vida1.setHorizontalAlignment(SwingConstants.CENTER);
+        Vida1.setBounds(403, 159, 70, 58);
+        contentPane.add(Vida1);
+
+        JLabel timerLabel = new JLabel("");
+        timerLabel.setFont(new Font("Arcadepix Plus", Font.PLAIN, 13));
+        timerLabel.setBounds(169, 267, 166, 14);
+        contentPane.add(timerLabel, BorderLayout.NORTH);
+
+        JLabel lblNewLabel = new JLabel("Efeito da gravidade");
+        lblNewLabel.setFont(new Font("Arcadepix Plus", Font.PLAIN, 30));
+        lblNewLabel.setBounds(20, 11, 271, 29);
+        contentPane.add(lblNewLabel);
+
+        JLabel lblNewLabel_1 = new JLabel("<html>Sua caminhada está tranquila até que de repente,<br>a gravidade na sua área começa a oscilar estranhamente...</html>");
+        lblNewLabel_1.setFont(new Font("Arcadepix Plus", Font.PLAIN, 20));
+        lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
+        lblNewLabel_1.setBounds(20, 51, 474, 40);
+        contentPane.add(lblNewLabel_1);
+
+        JLabel lblNewLabel_1_1 = new JLabel("<html>Tentar correr apesar da gravidade flutuante</html>");
+        lblNewLabel_1_1.setVerticalAlignment(SwingConstants.TOP);
+        lblNewLabel_1_1.setFont(new Font("Arcadepix Plus", Font.PLAIN, 20));
+        lblNewLabel_1_1.setBounds(60, 108, 366, 29);
+        contentPane.add(lblNewLabel_1_1);
+
+        JLabel lblNewLabel_1_1_1 = new JLabel("<html>Pular e flutuar até a locadora </html>");
+        lblNewLabel_1_1_1.setVerticalAlignment(SwingConstants.TOP);
+        lblNewLabel_1_1_1.setFont(new Font("Arcadepix Plus", Font.PLAIN, 20));
+        lblNewLabel_1_1_1.setBounds(60, 148, 255, 29);
+        contentPane.add(lblNewLabel_1_1_1);
+
+        JLabel lblNewLabel_1_1_1_1 = new JLabel("<html>Aguardar até a gravidade estabilizar </html>");
+        lblNewLabel_1_1_1_1.setVerticalAlignment(SwingConstants.TOP);
+        lblNewLabel_1_1_1_1.setFont(new Font("Arcadepix Plus", Font.PLAIN, 20));
+        lblNewLabel_1_1_1_1.setBounds(60, 188, 303, 29);
+        contentPane.add(lblNewLabel_1_1_1_1);
+
+        JButton btn2 = new JButton("2");
+        btn2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                result.setText("<html>Você avança rapidamente, mas acaba se chocando com um pássaro e tem uma morte trágica.</html>");
+                vida.setForeground(Color.RED);
+                vida.setText("<html>Você morreu</html>");
+                Pont_Sys.life_total = 0;
+                vida.setFont(new Font("Arcadepix Plus", Font.PLAIN, 22));
+                vida.setText("<html>Você morreu!</html>");
+                Vida1.setText("<html>Vidas:<html><br>" + Pont_Sys.life_total + "<html>pts<html>");
+                Gamezinho.Lilbelula.setIcon(new ImageIcon(Gamezinho.class.getResource("/img/morreu2.gif")));
+                AudioPlayer player = new AudioPlayer();
+                player.playSound("src/audio/morreu.wav");
+                Pont_Sys.verify = 1;
+                Gamezinho.reiniciar.setVisible(true);
+                Gamezinho.reiniciar.setEnabled(true);
+                timerLabel.setVisible(false);
+                continueButton.setVisible(true);
+                stopTimer(); // Para o timer
+            }
+        });
+        btn2.setMargin(new Insets(0, 0, 0, 0));
+        btn2.setFont(new Font("Arcadepix Plus", Font.PLAIN, 23));
+        btn2.setBounds(20, 140, 30, 30);
+        contentPane.add(btn2);
+
+        JButton btn1 = new JButton("1\r\n");
+        btn1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                result.setText("<html>Você consegue, mas a corrida é extenuante e você fica exausto.</html>");
+                vida.setForeground(Color.RED);
+                vida.setFont(new Font("Arcadepix Plus", Font.PLAIN, 25));
+                Pont_Sys.life_total -= 2;
+                vida.setText("<html>-2pt</html>");
+                Vida1.setText("<html>Vidas:<html><br>" + Pont_Sys.life_total + "<html>pts<html>");
+                timerLabel.setVisible(false);
+                continueButton.setVisible(true);
+                stopTimer(); // Para o timer
+            }
+        });
+        btn1.setMargin(new Insets(0, 0, 0, 0));
+        btn1.setFont(new Font("Arcadepix Plus", Font.PLAIN, 23));
+        btn1.setBounds(20, 102, 30, 30);
+        contentPane.add(btn1);
+
+        JButton btn3 = new JButton("3\r\n");
+        btn3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                result.setText("<html>Você espera pacientemente e a gravidade se estabiliza, você tem uma sensação estranha de paz.</html>");
+                vida.setFont(new Font("Arcadepix Plus", Font.PLAIN, 25));
+                vida.setForeground(new Color(0, 0, 0));
+                vida.setText("<html>Você não perdeu nada</html>");
+                Vida1.setText("<html>Vidas:<html><br>" + Pont_Sys.life_total + "<html>pts<html>");
+                timerLabel.setVisible(false);
+                continueButton.setVisible(true);
+                stopTimer(); // Para o timer
+            }
+        });
+        btn3.setMargin(new Insets(0, 0, 0, 0));
+        btn3.setFont(new Font("Arcadepix Plus", Font.PLAIN, 23));
+        btn3.setBounds(20, 178, 30, 30);
+        contentPane.add(btn3);
+
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        // Inicializa e começa o timer
+        timer = new CustomTimer(5, timerLabel, continueButton);
+        timer.start();
+    }
+
+    private void stopTimer() {
+        if (timer != null) {
+            timer.stop(); // Chama o método stop do CustomTimer
+        }
+    }
+}

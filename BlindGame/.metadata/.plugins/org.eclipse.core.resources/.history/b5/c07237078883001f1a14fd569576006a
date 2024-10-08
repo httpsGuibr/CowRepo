@@ -1,0 +1,46 @@
+package game;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.Timer;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class CustomTimer {
+    private Timer timer;
+    private int countdownTime; // Tempo de contagem regressiva
+    @SuppressWarnings("unused")
+	private JLabel timerLabel;
+    private JButton continueButton;
+
+    public CustomTimer(int seconds, JLabel timerLabel, JButton continueButton) {
+        this.countdownTime = seconds;
+        this.timerLabel = timerLabel;
+        this.continueButton = continueButton;
+
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (countdownTime <= 0) {
+                    timer.stop();
+                    continueButton.setVisible(true); // Torna o botão visível quando o timer para
+                } else {
+                    timerLabel.setText("Tempo restante: " + countdownTime + "s");
+                    countdownTime--;
+                    
+                }
+            }
+        });
+    }
+
+    public void start() {
+        timer.start();
+        System.out.println(countdownTime);
+    }
+
+    public void stop() {
+        timer.stop();
+        continueButton.setVisible(true); // Torna o botão visível se o timer for parado
+    }
+}
+

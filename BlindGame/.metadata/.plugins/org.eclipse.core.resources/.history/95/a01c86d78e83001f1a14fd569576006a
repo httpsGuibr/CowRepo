@@ -1,0 +1,29 @@
+package game;
+
+public class teste {
+	JButton btn1 = new JButton("1\r\n");
+    btn1.addMouseListener(new MouseAdapter() {
+    	@Override
+    	public void mouseClicked(MouseEvent e) {
+    	result.setText("<html>Voce consegue, mas a corrida e extenuante e voce fica exausto.</html>");
+    	vida.setForeground(Color.RED);
+    	vida.setFont(new Font("Arcadepix Plus", Font.PLAIN, 25));
+    	Pont_Sys.life_total-=2;
+    	vida.setText("<html>-2pt</html>");
+    	Vida1.setText("<html>Vidas:<html><br>"+ Pont_Sys.life_total + "<html>pts<html>" );
+    	System.out.println(Pont_Sys.life_total);
+    	timerLabel.setVisible(false);
+    	continueButton.setVisible(true);
+    	
+    	{
+            ((Timer)e.getSource()).stop(); 
+            dispose(); 
+        }
+    	
+    	}
+    });
+    btn1.setMargin(new Insets(0, 0, 0, 0));
+    btn1.setFont(new Font("Arcadepix Plus", Font.PLAIN, 23));
+    btn1.setBounds(20, 102, 30, 30);
+    contentPane.add(btn1);
+}

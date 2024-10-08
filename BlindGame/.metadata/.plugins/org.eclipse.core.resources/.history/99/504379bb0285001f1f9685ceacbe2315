@@ -1,0 +1,44 @@
+package game;
+
+public class Timer {
+
+    private long startTime;
+    private long stopTime;
+    private boolean running;
+
+    // Inicia o timer
+    public void start() {
+        startTime = System.currentTimeMillis(); // Obtém o tempo atual em milissegundos
+        running = true;
+        System.out.println("Timer iniciado.");
+    }
+
+    // Para o timer
+    public void stop() {
+        stopTime = System.currentTimeMillis(); // Obtém o tempo atual em milissegundos
+        running = false;
+        System.out.println("Timer parado.");
+    }
+
+    // Calcula o tempo decorrido em segundos
+    public long getElapsedTime() {
+        long elapsed;
+        if (running) {
+            elapsed = (System.currentTimeMillis() - startTime);
+        } else {
+            elapsed = (stopTime - startTime);
+        }
+        return elapsed / 1000; // Converte para segundos
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Timer timer = new Timer();
+        
+        // Teste do timer
+        timer.start();
+        Thread.sleep(5000);  // Simula uma espera de 5 segundos
+        timer.stop();
+        
+        System.out.println("Tempo decorrido: " + timer.getElapsedTime() + " segundos.");
+    }
+}

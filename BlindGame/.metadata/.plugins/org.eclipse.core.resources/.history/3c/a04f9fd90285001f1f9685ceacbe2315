@@ -1,0 +1,36 @@
+package game;
+
+public class Timer {
+
+    private int[] timerArray; // Array para armazenar os segundos
+    private static int duration;     // Duração em segundos
+
+    public Timer(int duration) {
+        Timer.duration = duration;
+        timerArray = new int[duration];  // Define o tamanho do array baseado na duração
+    }
+
+    // Inicia o timer
+    public void start() {
+        for (int i = 0; i < duration; i++) {
+            timerArray[i] = i + 1;  // Preenche o array com o número de segundos
+            System.out.println("Tempo: " + timerArray[i] + " segundos");
+
+            try {
+                Thread.sleep(1000);  // Espera 1 segundo
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println("Timer finalizado.");
+    }
+
+    public static void main(String[] args) {
+        // Exemplo: Timer de 10 segundos
+        Timer timer = new Timer(10);  // Você pode inserir o tempo desejado aqui
+        System.out.println(duration);
+        timer.start();
+    }
+}
+

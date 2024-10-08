@@ -1,0 +1,64 @@
+package game;
+
+public class Timer {
+
+    private int[] timerArray; // Array para armazenar os segundos
+    private static int duration;     // Duração em segundos
+    private boolean running;         // Variável para controlar o estado do timer
+
+    public Timer(int duration) {
+        Timer.duration = duration;
+        timerArray = new int[duration];  // Define o tamanho do array baseado na duração
+        running = true;  // Inicialmente, o timer está rodando
+    }
+
+    // Inicia o timer
+    public void start() {
+        for (int i = 0; i < duration; i++) {
+            if (!running) {
+                System.out.println("Timer pausado.");
+                break; // Sai do loop se o timer estiver pausado
+            }
+
+            timerArray[i] = i + 1;  // Preenche o array com o número de segundos
+            System.out.println("Tempo: " + timerArray[i] + " segundos");
+
+            try {
+                Thread.sleep(1000);  // Espera 1 segundo
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (running) {
+            System.out.println("Timer finalizado.");
+        }
+    }
+
+    // Método para parar o timer
+    public void stop() {
+        running = false;  // Define o estado do timer para pausado
+    }
+
+    public static void main(String[] args) {
+        Timer timer = new Timer(10);  // Timer de 10 segundos
+
+        // Inicia o timer em uma nova thread
+        new Thread(() -> timer.start()).start();
+
+        // Simula um botão de parada após 5 segundos
+        try {
+            Thread.sleep(5000);  // Simula uma espera de 5 segundos
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Chama o método stop() para parar o timer
+        timer.stop();
+        System.out.println("Comando de parar o timer executado.");
+        
+        timer.start();
+        
+        
+    }
+}
