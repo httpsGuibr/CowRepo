@@ -1,2 +1,3 @@
 # CowRepo
- Local repo
+ Local repo to save study projects
+
