@@ -6,6 +6,7 @@
 }
 
 body {
+    
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-color: #0c0b0b;
@@ -176,13 +177,21 @@ nav.nav2 {
 }
 
 h2 {
-    font-size: 2em;
+    font-family: "Gloria Hallelujah", cursive;
+    font-weight:00;
+    font-size: 1em;
     margin-bottom: 10px;
-    color: #000;
+    color: #328519;
+    text-shadow: 
+        -1px -1px 0 #000, /* Sombra para cima à esquerda */
+        1px -1px 0 #000,  /* Sombra para cima à direita */
+        -1px 1px 0 #000,  /* Sombra para baixo à esquerda */
+        1px 1px 0 #000;   /* Sombra para baixo à direita */
 }
 
 h3 {
-    font-size: 1.5em;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.8em;
     margin-bottom: 10px;
 }
 
@@ -193,25 +202,68 @@ h3 {
     max-width: 600px;
     display: block;
     margin: 0 auto;
+    margin: 20px 5px 20px;
+
 }
 
 /* Ingredientes com fonte diferente */
 .ingredientes h4 {
-    font-family: 'Courier New', monospace;
-    font-size: 1.3em;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1em;
+    margin-top: 40pcx;
     margin-bottom: 5px;
 }
 
 .ingredientes ul {
     list-style-type: square;
     margin-left: 20px;
+    
 }
 
 .modo-preparo h4 {
-    font-family: 'Georgia', serif;
+    font-family: 'Brush Script MT', cursive;
     font-size: 1.3em;
+    margin-top: 40pcx;
     margin-bottom: 5px;
 }
+
+.modo-preparo p {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.2em;
+    margin-top: 40pcx;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.heitch {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.1em;
+    margin-top: 40pcx;
+    margin-bottom: 5px;
+}
+.heitch h4 {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.3em;
+    margin-top: 40pcx;
+    margin-bottom: 5px;
+}
+
+.heitch li {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.2em;
+    margin-top: 40pcx;
+    margin-bottom: 5px;
+    margin-left: 21px;
+}
+
+h2 {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 3em;
+    margin-top: 40pcx;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
 
 /* Footer */
 footer {
@@ -345,4 +397,3 @@ footer p {
         width: 95%;
     }
 }
-
