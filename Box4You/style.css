@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lemon Milk', sans-serif;
+    background-color: #f2f5f7;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    padding: 0px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px; /* Adiciona o preenchimento dentro da navbar */
+
+}
+
+.logo {
+    justify-self: flex-start; /* Adiciona essa propriedade para garantir que a logo fique à esquerda */
+    padding: 20px; /* Adiciona o preenchimento dentro da navbar */
+    margin: 15; /* Remove margens da logo */
+    padding: 0; /* Remove qualquer preenchimento da logo */
+}
+
+.logo img {    justify-self: flex-start; /* Adiciona essa propriedade para garantir que a logo fique à esquerda */
+    height: 50px; /* Ajuste o tamanho conforme necessário */
+    display: block; /* Remove espaçamento indesejado ao redor da imagem */
+    margin: 5px;
+    max-width: 60%;  /* A imagem não ultrapassará o tamanho do contêiner */
+    height: auto;}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu li a {
+    color: #f2f5f7;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.menu li .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    top: 100%;
+    left: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+.menu li:hover .dropdown {
+    display: block;
+}
+
+.menu li a:hover {
+    color: #fbb03b;
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 100%; /* Largura máxima do slider é 100% da tela */
+    margin: 30px auto;
+}
+
+.slider img {
+    width: 90%; /* Imagem ocupa toda a largura do contêiner do slider */
+    max-width: 1148px; /* Limita a largura máxima da imagem */
+    height: auto; /* Mantém a proporção da altura */
+}
+
+.slide {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.active {
+    display: flex;
+}
+
+.slide-content {
+    margin-left: 20px;
+    max-width: 80%; /* Define a largura máxima do conteúdo */
+}
+
+.slide-content h2 {
+    font-family: 'Lemon Milk', sans-serif;
+    background-color: #f2f5f7;
+    color: #fbb03b;
+    font-size: 2em;
+    position: relative; /* Necessário para o uso do z-index */  
+    left: -19px;
+
+}
+.slide-content ul li {
+    padding-left: 20px;  /* Adiciona espaço à esquerda */
+    padding-right: 20px; /* Adiciona espaço à direita */
+    justify-content: space-between;
+}
+
+.price {
+    font-size: 24px;
+    color: #333;
+    position: relative;
+    left: -19px;
+}
+
+.prev, .next {
+    background-color: #fbb03b;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 20px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #f2f5f7;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .slider {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .slide-content {
+        margin-left: 0; /* Centraliza o conteúdo do slide em telas menores */
+        max-width: 100%; /* Ajusta a largura do conteúdo */
+    }
+
+    .prev, .next {
+        padding: 8px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-content h2 {
+        font-size: 20px;
+    }
+
+    .price {
+        font-size: 18px;
+    }
+
+    .prev, .next {
+        font-size: 14px;
+        padding: 5px;
+    }
+}
