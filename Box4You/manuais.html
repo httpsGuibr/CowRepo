@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuais - Box4you</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Reutilizando o Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/logo (1).png" alt="Logo do site">
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Produtos</a>
+                    <ul class="dropdown">
+                        <li><a href="modelos.html">Modelos</a></li>
+                        <li><a href="manuais.html">Manuais</a></li>
+                        <li><a href="posvenda.html">Pós venda</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Serviços</a>
+                    <ul class="dropdown">
+                        <li><a href="aluguelparaeventos.html">Aluguel para eventos</a></li>
+                        <li><a href="vendas.html">Vendas</a></li>
+                        <li><a href="manutencao.html">Manutenção</a></li>
+                    </ul>
+                </li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="manuais-section">
+            <div class="manuais-container">
+                <h2>Selecione o Modelo para o Manual</h2>
+                <div class="seletor-container">
+                    <select id="modelo-select">
+                        <option value="" disabled selected>Escolha um modelo</option>
+                        <option value="nikola">Box4you Nikola</option>
+                        <option value="albert">Box4you Albert</option>
+                    </select>
+                </div>
+                <div class="botao-container">
+                    <button id="gerar-pdf" disabled>Gerar Manual</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reutilizando o Footer -->
+    <footer>
+        <p>&copy; 2024 Box4you. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="manuais.js"></script>
+</body>
+</html>

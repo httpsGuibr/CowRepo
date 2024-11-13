@@ -34,7 +34,7 @@ header {
     height: 50px; /* Ajuste o tamanho conforme necessário */
     display: block; /* Remove espaçamento indesejado ao redor da imagem */
     margin: 5px;
-    max-width: 60%;  /* A imagem não ultrapassará o tamanho do contêiner */
+    max-width: 80%;  /* A imagem não ultrapassará o tamanho do contêiner */
     height: auto;}
 
 .menu {
@@ -148,6 +148,23 @@ header {
     right: 10px;
 }
 
+.select {
+    width: 100%;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f2f5f7;
+    color: #333;
+    font-size: 16px;
+    appearance: none; /* Remove a seta padrão no Chrome e Safari */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('path/para-sua-seta.png'); /* Coloque um ícone customizado se desejar */
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+}
+
 footer {
     background-color: #333;
     color: #f2f5f7;
@@ -155,6 +172,513 @@ footer {
     padding: 20px;
     margin-top: 50px;
 }
+
+.menu li {
+    position: relative;
+}
+
+.menu li .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    top: 100%;
+    left: 0;
+    padding: 10px;
+    list-style: none;
+    min-width: 180px; /* Define uma largura mínima */
+    z-index: 1000; /* Garante que o dropdown fique acima de outros elementos */
+}
+
+.menu li .dropdown li {
+    margin-bottom: 5px;
+}
+
+.menu li .dropdown li a {
+    color: #f2f5f7;
+    text-decoration: none;
+    font-weight: normal;
+    padding: 8px 10px;
+    display: block;
+    white-space: nowrap; /* Evita que o texto quebre */
+}
+
+.menu li:hover .dropdown {
+    display: block;
+}
+
+.menu li .dropdown li a:hover {
+    background-color: #fbb03b;
+    color: #333;
+}
+
+.promo-banner {
+    background-color: #fbb03b;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 20px 0;
+    border: none;
+    width: 100%;
+}
+
+.purchase-form {
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.purchase-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+select, input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: #fbb03b;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.submit-btn:hover {
+    background-color: #e09e36;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+}
+
+.progress-bar {
+    height: 5px;
+    background-color: #fbb03b;
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+.menu ul li a {
+    border: 2px solid #fbb03b; /* Cor e espessura do contorno */
+    border-radius: 30px; /* Deixa o contorno oblongo */
+    padding: 8px 16px; /* Espaçamento interno para o texto */
+    margin-left: 10px; /* Margem à esquerda */
+    color: #f2f5f7; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    transition: all 0.3s ease; /* Adiciona uma transição suave */
+}
+
+.menu li a[href="#"]:last-child:hover {
+    background-color: #fbb03b; /* Cor de fundo ao passar o mouse */
+    color: #333; /* Cor do texto ao passar o mouse */
+}
+
+.modelos-main {
+    padding: 40px;
+    text-align: center;
+}
+
+.modelos-section {
+    display: flex;
+    justify-content: center ;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.modelo-card {
+    background-color: #fbb03b;
+    border-radius: 15px;
+    padding: 40px; /* Aumentei o padding para criar mais espaço interno */
+    margin: 20px; /* Adicionei uma margem externa */
+    width: 350px; /* Aumentei a largura para tornar os cartões maiores */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+}
+
+.modelo-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.price1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.modelo-card ul {
+    text-align: left; /* Alinha o texto das listas à esquerda */
+    padding-left: 20px; /* Adiciona um espaçamento da borda esquerda (opcional) */
+}
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.manuais-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.manuais-container {
+    background-color: #fbb03b;
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Garantindo que o container fique centralizado */
+}
+
+.manuais-container h2 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.seletor-container {
+    margin-bottom: 20px;
+}
+
+#modelo-select {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+
+.botao-container button {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #fbb03b;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Lemon Milk', sans-serif; /* Garantir que o botão use a mesma fonte */
+}
+
+.botao-container button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.botao-container button:hover:enabled {
+    background-color: #f2f5f7;
+}
+
+.posvenda-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.posvenda-section h2 {
+    padding-right: 40px;
+}
+.contato-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    gap: 30px;
+    flex-wrap: wrap; /* Adicionado para permitir que as caixas se ajustem em telas pequenas */
+}
+
+.contato-box {
+    background-color: #fbb03b;
+    color: #333;
+    padding: 20px;
+    border-radius: 12px;
+    width: 30%;
+    text-align: center;
+    box-sizing: border-box; /* Garante que o padding não cause overflow */
+    overflow: hidden; /* Evita que o conteúdo ultrapasse a caixa */
+}
+
+.contato-box h3 {
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+    word-wrap: break-word; /* Quebra a linha se o texto for muito longo */
+}
+
+.contato-box p {
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 16px;
+    margin: 5px 0;
+    word-wrap: break-word; /* Quebra a linha se o texto for muito longo */
+    hyphens: auto; /* Adiciona quebra de palavras, se necessário */
+}
+
+.contato-box strong {
+    font-weight: bold;
+}
+
+.manutencao-section {
+    padding: 40px;
+    text-align: center;
+}
+
+.problemas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.problema-box {
+    background-color: #fbb03b;
+    color: #333;
+    padding: 20px;
+    border-radius: 12px;
+    width: 60%;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.problema-box h3 {
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.problema-box p {
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.problema-box strong {
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 15px;  /* Espaçamento interno */
+    border: 2px solid #fbb03b; /* Cor da borda */
+    border-radius: 15px; /* Borda arredondada */
+    background-color: #f2f5f7; /* Cor de fundo semelhante ao site */
+    font-size: 16px; /* Tamanho da fonte */
+    font-family: 'Lemon Milk', sans-serif; /* Fonte personalizada */
+    color: #333; /* Cor do texto */
+    margin-top: 10px; /* Margem superior */
+    margin-bottom: 20px; /* Margem inferior */
+    box-sizing: border-box; /* Inclui o padding na largura total */
+    resize: vertical; /* Permite que o usuário redimensione a altura */
+}
+
+/* Estilo para o foco (quando o usuário clica na caixa de texto) */
+textarea:focus {
+    outline: none; /* Remove o contorno padrão */
+    border-color: #fbb03b; /* Borda laranja quando em foco */
+    background-color: #fff; /* Cor de fundo ao focar */
+}
+
+
+/* Estilos específicos para a página de Aluguel para Eventos */
+.aluguel-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.aluguel-titulo {
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Lemon Milk', sans-serif;
+    color: #fbb03b;
+    margin-bottom: 30px;
+}
+
+.aluguel-intro {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+.aluguel-planos {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.aluguel-plano {
+    background-color: #fbb03b;
+    border-radius: 15px;
+    width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.aluguel-plano h3 {
+    font-size: 24px;
+    font-family: 'Lemon Milk', sans-serif;
+    color: #fff;
+}
+
+.aluguel-plano p {
+    font-size: 16px;
+    color: #fff;
+}
+
+.aluguel-plano .descricao, 
+.aluguel-plano .preco {
+    font-size: 30px;
+    color: #584f4f;
+    font-weight: bold;
+    padding-top: 20px;   /* Adiciona o padding superior */
+    padding-bottom: 20px; /* Adiciona o padding inferior */
+    flex-grow: 0;
+}
+
+.aluguel-contato {
+    text-align: center;
+    margin-top: 50px;
+    background-color: #fbb03b; /* Fundo amarelo */
+    padding: 20px;
+    border-radius: 12px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombrinha suave */
+    text-align: center; /* Centraliza o texto dentro do bloco */
+}
+
+.aluguel-contato p {
+    font-size: 18px;
+    color: #555;
+    padding: 10px;
+}
+
+.aluguel-contato .telefone, .aluguel-contato .email {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 10px;
+}
+
+
+.aluguel-plano .inclusos {
+    font-size: 16px;
+    font-weight: normal;
+    color: #fff;
+    justify-content: bottom;
+    text-align: center;  /* Garante que o texto fique alinhado à esquerda */
+    word-wrap: break-word; /* Quebra a linha se o texto for muito longo */
+}
+
+.contato-section {
+    background-color: #fbb03b; /* Fundo amarelo */
+    padding: 40px 20px;
+    border-radius: 12px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.contato-section h2 {
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.contato-info {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.contato-item {
+    margin: 10px 0;
+}
+
+.mapa-container {
+    margin-top: 30px;
+}
+
+.mapa-quadrado {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.mapa-titulo {
+    font-family: 'Lemon Milk', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .problemas-container {
+        width: 100%;
+        gap: 15px;
+    }
+
+    .problema-box {
+        width: 90%;
+    }
+
+    .problema-box h3 {
+        font-size: 18px;
+    }
+
+    .problema-box p {
+        font-size: 14px;
+    }
+}
+
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
@@ -186,5 +710,25 @@ footer {
     .prev, .next {
         font-size: 14px;
         padding: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contato-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contato-box {
+        width: 80%; /* Aumenta a largura das caixas para dispositivos menores */
+        margin-bottom: 20px;
+    }
+
+    .contato-box h3 {
+        font-size: 20px; /* Ajusta o tamanho da fonte do título */
+    }
+
+    .contato-box p {
+        font-size: 14px; /* Ajusta o tamanho da fonte do texto */
     }
 }

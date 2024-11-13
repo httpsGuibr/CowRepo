@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manutenção | Box4you</title>
+    <link rel="stylesheet" href="style.css"> <!-- Reutilize o seu arquivo CSS -->
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/logo (1).png" alt="Logo do site">
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Produtos</a>
+                    <ul class="dropdown">
+                        <li><a href="modelos.html">Modelos</a></li>
+                        <li><a href="manuais.html">Manuais</a></li>
+                        <li><a href="posvenda.html">Pós venda</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Serviços</a>
+                    <ul class="dropdown">
+                        <li><a href="aluguelparaeventos.html">Aluguel para eventos</a></li>
+                        <li><a href="manutencao.html">Manutenção</a></li>
+                    </ul>
+                </li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="manutencao-section">
+            <h2 class="h2">Problemas e Soluções</h2>
+            <div class="problemas-container">
+                <div class="problema-box">
+                    <h3>Problema: A máquina não liga</h3>
+                    <p><strong>Solução:</strong> Verifique se a máquina está conectada corretamente à tomada e se o interruptor de energia está ativado.</p>
+                </div>
+                <div class="problema-box">
+                    <h3>Problema: A tela não responde ao toque</h3>
+                    <p><strong>Solução:</strong> Tente reiniciar a máquina. Se o problema persistir, verifique se há algum bloqueio na tela.</p>
+                </div>
+                <div class="problema-box">
+                    <h3>Problema: Produtos não estão saindo da máquina</h3>
+                    <p><strong>Solução:</strong> Verifique se há algum bloqueio nos compartimentos de produtos e reabasteça as máquinas, se necessário.</p>
+                </div>
+                <div class="problema-box">
+                    <h3>Problema: A máquina está demorando para responder</h3>
+                    <p><strong>Solução:</strong> Verifique a conexão com a rede elétrica e reinicie o sistema da máquina.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="purchase-form">
+        <h2>Formulário de atendimento </h2>
+        <form id="interestForm">
+            
+            <label for="email">Nos conte seu problema com a máquina box4you</label>
+            <textarea id="email" name="email" rows="4" cols="50" placeholder="Digite seu problema aqui..."></textarea>
+            
+            <label for="email">E-mail:</label>
+            <textarea id="email" name="email" rows="1" cols="50" placeholder="Digite seu email aqui..."></textarea>
+    
+            <button type="submit" class="submit-btn">Enviar</button>
+        </form>
+        
+        <!-- Pop-up de confirmação -->
+        <div class="popup" id="popup">
+            <p>Retornaremos no e-mail, obrigado!</p>
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Box4you - Todos os direitos reservados</p>
+    </footer>
+    <script src="formulario.js"></script>
+</body>
+</html>
